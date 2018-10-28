@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+  <head>
+    {% include "heading.html" %}
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</head>
+
+<body>
+  <!-- menu -->
+  <nav class="nav-extended teal lighten-1">
+   <div class="nav-wrapper">
+     <a class="brand-logo center">Auth</a>
+
+   </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <!-- financeiro -->
+      <div class="col s4">
+        <a href="/auth/check/finance/">
+          <div class="card">
+            <div class="card-content">
+              <img width="50" height="50" src="{{ url_for('static', filename='money-bag.png') }}" alt="Financeiro" title="Financeiro">
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- administração -->
+      <div class="col s4">
+        <a href="/auth/check/admin/">
+          <div class="card">
+            <div class="card-content">
+              <img width="50" height="50" src="{{ url_for('static', filename='calendar.png') }}" alt="Administração" title="Administração">
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- membros -->
+      <div class="col s4">
+        <a href="/auth/check/member/">
+          <div class="card">
+            <div class="card-content">
+              <img width="50" height="50" src="{{ url_for('static', filename='boss.png') }}" alt="Membros" title="Membros">
+            </div>
+          </div>
+        </a>
+      </div>
+    </div><!-- .row -->
+
+    <div class="row">
+      <!-- gerenciador de cursos -->
+      <div class="col s4">
+        <a href="/auth/check/coursesmanager/">
+          <div class="card">
+            <div class="card-content">
+              <img width="50" height="50" src="{{ url_for('static', filename='online-learning.png') }}" alt="Gerenciador de Cursos" title="Gerenciador de Cursos">
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- gerenciador de congressos -->
+      <div class="col s4">
+        <a href="/auth/check/congressmanager/">
+          <div class="card">
+            <div class="card-content">
+              <img width="50" height="50" src="{{ url_for('static', filename='congress.png') }}" alt="Gerenciador de Congressos" title="Gerenciador de Congressos">
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- gerenciador de publicações -->
+      <div class="col s4">
+        <a href="/auth/check/papermanager/">
+          <div class="card">
+            <div class="card-content">
+              <img width="50" height="50" src="{{ url_for('static', filename='contract.png') }}" alt="Gerenciador de Publicações" title="Gerenciador de Publicações">
+            </div>
+          </div>
+        </a>
+      </div>
+    </div><!-- .row -->
+
+    <div class="row">
+      <!-- comunicação -->
+      <div class="col s4">
+        <a href="/auth/check/comunication/">
+          <div class="card">
+            <div class="card-content">
+              <img width="50" height="50" src="{{ url_for('static', filename='chat.png') }}" alt="Comunicação" title="Comunicação">
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div> <!-- .row -->
+  </div> <!-- .container -->
+
+</body>
+</html>

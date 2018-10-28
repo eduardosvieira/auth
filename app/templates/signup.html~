@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+  <head>
+    {% include "heading.html" %}
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</head>
+  <body>
+    <!-- menu -->
+    <nav class="nav-extended #212121 grey darken-4">
+     <div class="nav-wrapper">
+       <a class="brand-logo center">Coordenação Fácil</a>
+       <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+       <ul id = "nav-mobile"  class="right hide-on-med-and-down">
+         <li><a href="#">Entrar</a></li>
+         <li><a href="#">Cadastrar-se</a></li>
+       </ul>
+     </div>
+    </nav>
+
+    <ul class="sidenav" id = "mobile-demo">
+     <li><a href="#">Entrar</a></li>
+     <li><a href="#">Cadastrar-se</a></li>
+    </ul>
+
+    <!-- container -->
+    <div class="container">
+      <h4>Cadastrar-se</h4>
+
+      <form action="" method="POST">
+        {% if error %}
+          <div class="row">
+            <span style="font-weight: bold; color: red;">{{error}}</span>
+          </div>
+        {% endif %}
+        <div class="row">
+          <div class="input-field s12 m12 l12">
+            <input name="name" id="name" type="text">
+            <label for="name">Nome Completo</label>
+          </div>
+
+          <div class="input-field s12 m12 l12">
+            <input name="email" id="email" type="email">
+            <label for="email">E-mail</label>
+          </div>
+
+
+          <div class="input-field s12 m12 l12">
+            <input name="code" id="code" type="text">
+            <label for="code">Matrícula</label>
+          </div>
+
+          <div class="input-field s12 m12 l12">
+            <input name="password" id="password" type="password">
+            <label for="password">Senha</label>
+          </div>
+
+          <div class="input-field s12 m12 l12">
+            <input name="password" id="password" type="password">
+            <label for="password">Confirmar senha</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <button type="submit" class="btn  col s12 m12 l6 offset-l6 green">Cadastrar-se</button>
+
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>
