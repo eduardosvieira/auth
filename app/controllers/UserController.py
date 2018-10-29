@@ -3,6 +3,7 @@ from flask import render_template, request, jsonify
 from app import app
 
 from app.models.User import User
+from app.models.Criptografia import Criptografia
 
 @app.route("/auth/login/", methods=["GET"])
 def redirect_login():
@@ -28,8 +29,9 @@ def login(system):
       "code": 404
     }
 
-  return jsonify(message)
+    cipher = Criptografia().encode(message)
 
+  return cipher
 
 @app.route("/auth/signup/", methods=["GET"])
 def redirect_signup():
@@ -65,8 +67,11 @@ def check(email="", system=""):
         "message": "FORBIDDEN",
         "code": 403
       }
-  user = User()
 
-  result = user.check_permissions(email=email, system=system)
+    user = User()
 
-  return result
+    result = user.check_permissions(email=email, system=system)
+
+
+
+    return result
