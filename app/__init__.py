@@ -8,6 +8,6 @@ db = client.cfdb
 
 from app.controllers import UserController
 
-@app.route("/auth/modules/")
+@app.route("/auth/")
 def front():
-    return render_template("front.html")
+    return render_template("index.html")

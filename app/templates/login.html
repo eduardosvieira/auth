@@ -11,7 +11,7 @@
     <!-- menu -->
     <nav class="nav-extended teal lighten-1">
      <div class="nav-wrapper">
-       <a class="brand-logo center">Auth</a>
+       <a class="brand-logo center">ABTMS</a>
        <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
        <ul id = "nav-mobile"  class="right hide-on-med-and-down">
          <li><a href="/auth/login/">Entrar</a></li>
@@ -36,7 +36,7 @@
 
       <h4>Entrar</h4>
 
-      <form action="/auth/login/portal" method="POST">
+      <form action="/auth/login/{{ module }}" method="POST">
         {% if error %}
           <div class="row">
             <span style="font-weight: bold; color: red;">{{error}}</span>

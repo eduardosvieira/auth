@@ -5,9 +5,9 @@ from app import app
 from app.models.User import User
 from app.models.Criptografia import Criptografia
 
-@app.route("/auth/login/", methods=["GET"])
-def redirect_login():
-  return render_template("login.html")
+@app.route("/auth/login/<module>/", methods=["GET"])
+def redirect_login(module):
+  return render_template("login.html", module=module)
 
 
 @app.route("/auth/login/<system>", methods=["POST"])
@@ -20,7 +20,20 @@ def login(system):
   result = user.login(email=email, password=password)
 
   if result:
-    return redirect("auth/modules/")
+    if check(email=email, system=system):
+      message = {
+        "name": result["name"],
+        "email": email,
+        "message": "OK",
+        "code": 200
+      }
+    else:
+      message = {
+        "name": result["name"],
+        "email": email,
+        "message": "FORBIDDEN",
+        "code": 403
+      }
   else:
     message = {
       "name": "",
@@ -29,7 +42,9 @@ def login(system):
       "code": 404
     }
 
-    cipher = Criptografia().encode(message)
+  cipher = Criptografia().encode(message)
+
+  print(message)
 
   return cipher
 
@@ -52,26 +67,8 @@ def signup():
 
 
 def check(email="", system=""):
-
-    if check(email=result["email"], system=system):
-      message = {
-        "name": result["name"],
-        "email": result["email"],
-        "message": "OK",
-        "code": 200
-      }
-    else:
-      message = {
-        "name": result["name"],
-        "email": result["email"],
-        "message": "FORBIDDEN",
-        "code": 403
-      }
-
     user = User()
 
     result = user.check_permissions(email=email, system=system)
-
-
 
     return result
