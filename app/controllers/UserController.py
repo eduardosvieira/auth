@@ -1,17 +1,15 @@
-from flask import render_template, request, jsonify
+from flask import render_template, request, jsonify, redirect, session
 
 from app import app
+
+app.config["SECRET_KEY"] = "sjakjs45454s@#4s8as9s997"
 
 from app.models.User import User
 from app.models.Criptografia import Criptografia
 
-@app.route("/auth/login/<module>/", methods=["GET"])
-def redirect_login(module):
-  return render_template("login.html", module=module)
-
-
-@app.route("/auth/login/<system>", methods=["POST"])
-def login(system):
+#verify login user
+@app.route("/auth/login/", methods=["POST"])
+def login():
   email = request.form.get("email")
   password = request.form.get("password")
 
@@ -20,20 +18,19 @@ def login(system):
   result = user.login(email=email, password=password)
 
   if result:
-    if check(email=email, system=system):
-      message = {
-        "name": result["name"],
-        "email": email,
-        "message": "OK",
-        "code": 200
-      }
-    else:
-      message = {
-        "name": result["name"],
-        "email": email,
-        "message": "FORBIDDEN",
-        "code": 403
-      }
+    message = {
+      "name": result["name"],
+      "email": email,
+      "message": "OK",
+      "code": 200,
+      "modules": result["modules"]
+    }
+
+    token = Criptografia().encode(message)
+
+    session["token"] = token
+
+    return redirect("/abtms/modules/")
   else:
     message = {
       "name": "",
@@ -42,11 +39,9 @@ def login(system):
       "code": 404
     }
 
-  cipher = Criptografia().encode(message)
+    token = Criptografia().encode(message)
 
-  print(message)
-
-  return cipher
+    return redirect("/abtms/login/")
 
 @app.route("/auth/signup/", methods=["GET"])
 def redirect_signup():

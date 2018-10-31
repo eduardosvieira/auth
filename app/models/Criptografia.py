@@ -3,7 +3,7 @@ import jwt
 class Criptografia():
 
     def encode(self, msg):
-        encoded_jwt = jwt.encode({'some': 'payload'}, 'secret', algorithm='HS256')
+        encoded_jwt = jwt.encode(msg, 'secret', algorithm='HS256')
         return encoded_jwt
 
     def decode(self, encoded_jwt):

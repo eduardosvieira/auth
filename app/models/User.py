@@ -7,7 +7,7 @@ class User():
     self.email = email
     self.password = password
 
-  
+
   def login(self, email="", password=""):
     u = db.users.find_one({
       "email": email,
@@ -24,13 +24,13 @@ class User():
     db.users.insert({
       "name": user.name,
       "email": user.email,
-      "password": user.password, 
-      "system_access": ["portal"]
+      "password": user.password,
+      "modules": ["portal", "finance"]
     })
 
     return True
 
-  
+
   def check_permissions(self, email="", system=""):
     u = db.users.find_one({"email": email, "system_access": system})
 

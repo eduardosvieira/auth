@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+  <head>
+    {% include "heading.html" %}
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+  </head>
+  <body>
+    <!-- menu -->
+    <nav class="nav-extended teal lighten-1">
+     <div class="nav-wrapper">
+       <a class="brand-logo center">ABTMS</a>
+       <a href="" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+       <ul id = "nav-mobile"  class="right hide-on-med-and-down">
+         <li><a href="#"><i class="material-icons right">settings</i>Configurações</a></li>
+         <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
+       </ul>
+     </div>
+    </nav>
+
+    <ul class="sidenav" id = "mobile-demo">
+     <li><a href="#"><i class="material-icons right">settings</i>Configurações</a></li>
+     <li><a href="#"><i class="material-icons right">exit_to_app</i>Sair</a></li>
+    </ul>
+
+    <!-- container -->
+    <div class="container">
+
+      <!-- plano de estudos -->
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Cursos</span>
+
+          <table>
+            <thead>
+              <tr>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Status</th>
+                  <th>Ver</th>
+                  <th>Remover</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(3) %}
+                <tr>
+                  <td>CSS</td>
+                  <td>Curso de CSS para Iniciantes</td>
+                  <td>Comprado</td>
+                  <td><i class="material-icons red-text">search</i></td>
+                  <td><i class="material-icons red-text">delete</i></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+      <!-- pedidos de aproveitamento de cadeiras -->
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Congressos</span>
+
+          <table>
+            <thead>
+              <tr>
+                  <th>Nome</th>
+                  <th>Descrição</th>
+                  <th>Status</th>
+                  <th>Ver</th>
+                  <th>Remover</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(3) %}
+                <tr>
+                  <td>XX Congresso</td>
+                  <td>Congresso da ABTMS</td>
+                  <td>Comprado</td>
+                  <td><i class="material-icons red-text">search</i></td>
+                  <td><i class="material-icons red-text">delete</i></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+
+      <!-- pedidos de aproveitamento de cadeiras -->
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Publicações</span>
+
+          <table>
+            <thead>
+              <tr>
+                  <th>Nome</th>
+                  <th>Status</th>
+                  <th>Ver</th>
+                  <th>Remover</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(3) %}
+                <tr>
+                  <td>Estudo de Viabilidade de VR e RV em telessáude</td>
+                  <td>Em Processamento</td>
+                  <td><i class="material-icons red-text">search</i></td>
+                  <td><i class="material-icons red-text">delete</i></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+
+      <!-- pedidos de monitoria -->
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Boletos</span>
+
+          <table>
+            <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Data</th>
+                  <th>Status</th>
+                  <th>Imprimir</th>
+                  <th>Pagar</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for i in range(3) %}
+                <tr>
+                  <td>1</td>
+                  <td>12/10/2018</td>
+                  <td>Pago</td>
+                  <td><i class="material-icons red-text">get_app</i></td>
+                  <td><i class="material-icons red-text">money</i></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a href="#modal-create-account" class="btn-floating btn-large modal-trigger red tooltipped text-white" data-position="left" data-tooltip="Criar nova conta">
+          <i class="material-icons">add</i>
+        </a>
+    </div>
+  </body>
+</html>
