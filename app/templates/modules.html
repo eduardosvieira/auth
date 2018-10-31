@@ -19,86 +19,96 @@
 
   <div class="container">
     <div class="row">
-      <!-- financeiro -->
-      <div class="col s4">
-        <a href="/auth/login/finance/">
-          <div class="card">
-            <div class="card-content">
-              <img width="50" height="50" src="{{ url_for('static', filename='money-bag.png') }}" alt="Financeiro" title="Financeiro">
+      {% if "finance" in modules %}
+        <!-- financeiro -->
+        <div class="col s4">
+          <a href="/auth/login/finance/">
+            <div class="card">
+              <div class="card-content">
+                <img width="50" height="50" src="{{ url_for('static', filename='money-bag.png') }}" alt="Financeiro" title="Financeiro">
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      {% endif %}
 
-      <!-- administração -->
-      <div class="col s4">
-        <a href="/auth/login/admin/">
-          <div class="card">
-            <div class="card-content">
-              <img width="50" height="50" src="{{ url_for('static', filename='calendar.png') }}" alt="Administração" title="Administração">
+      {% if "admin" in modules %}
+        <!-- administração -->
+        <div class="col s4">
+          <a href="/auth/login/admin/">
+            <div class="card">
+              <div class="card-content">
+                <img width="50" height="50" src="{{ url_for('static', filename='calendar.png') }}" alt="Administração" title="Administração">
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      {% endif%}
 
-      <!-- membros -->
-      <div class="col s4">
-        <a href="/auth/login/member/">
-          <div class="card">
-            <div class="card-content">
-              <img width="50" height="50" src="{{ url_for('static', filename='boss.png') }}" alt="Membros" title="Membros">
+      {% if "portal" in modules %}
+        <!-- membros -->
+        <div class="col s4">
+          <a href="/auth/login/member/">
+            <div class="card">
+              <div class="card-content">
+                <img width="50" height="50" src="{{ url_for('static', filename='boss.png') }}" alt="Membros" title="Membros">
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
-    </div><!-- .row -->
+          </a>
+        </div>
+      {% endif %}
 
-    <div class="row">
-      <!-- gerenciador de cursos -->
-      <div class="col s4">
-        <a href="/auth/login/coursesmanager/">
-          <div class="card">
-            <div class="card-content">
-              <img width="50" height="50" src="{{ url_for('static', filename='online-learning.png') }}" alt="Gerenciador de Cursos" title="Gerenciador de Cursos">
+      {% if "coursesmanager" in modules %}
+        <!-- gerenciador de cursos -->
+        <div class="col s4">
+          <a href="/auth/login/coursesmanager/">
+            <div class="card">
+              <div class="card-content">
+                <img width="50" height="50" src="{{ url_for('static', filename='online-learning.png') }}" alt="Gerenciador de Cursos" title="Gerenciador de Cursos">
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      {% endif %}
 
-      <!-- gerenciador de congressos -->
-      <div class="col s4">
-        <a href="/auth/login/congressmanager/">
-          <div class="card">
-            <div class="card-content">
-              <img width="50" height="50" src="{{ url_for('static', filename='congress.png') }}" alt="Gerenciador de Congressos" title="Gerenciador de Congressos">
+      {% if "congressesmanager" in modules %}
+        <!-- gerenciador de congressos -->
+        <div class="col s4">
+          <a href="/auth/login/congressmanager/">
+            <div class="card">
+              <div class="card-content">
+                <img width="50" height="50" src="{{ url_for('static', filename='congress.png') }}" alt="Gerenciador de Congressos" title="Gerenciador de Congressos">
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      {% endif %}
 
-      <!-- gerenciador de publicações -->
-      <div class="col s4">
-        <a href="/auth/login/papermanager/">
-          <div class="card">
-            <div class="card-content">
-              <img width="50" height="50" src="{{ url_for('static', filename='contract.png') }}" alt="Gerenciador de Publicações" title="Gerenciador de Publicações">
+      {% if "papersmanager" in modules %}
+        <!-- gerenciador de publicações -->
+        <div class="col s4">
+          <a href="/auth/login/papermanager/">
+            <div class="card">
+              <div class="card-content">
+                <img width="50" height="50" src="{{ url_for('static', filename='contract.png') }}" alt="Gerenciador de Publicações" title="Gerenciador de Publicações">
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
-    </div><!-- .row -->
+          </a>
+        </div>
+      {% endif %}
 
-    <div class="row">
-      <!-- comunicação -->
-      <div class="col s4">
-        <a href="/auth/login/comunication/">
-          <div class="card">
-            <div class="card-content">
-              <img width="50" height="50" src="{{ url_for('static', filename='chat.png') }}" alt="Comunicação" title="Comunicação">
+      {% if "comunication" in modules %}
+        <!-- comunicação -->
+        <div class="col s4">
+          <a href="/auth/login/comunication/">
+            <div class="card">
+              <div class="card-content">
+                <img width="50" height="50" src="{{ url_for('static', filename='chat.png') }}" alt="Comunicação" title="Comunicação">
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      {% endif %}
 
     </div> <!-- .row -->
   </div> <!-- .container -->
