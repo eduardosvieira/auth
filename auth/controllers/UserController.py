@@ -2,12 +2,9 @@ from flask import render_template, request, jsonify, redirect, session
 
 from app import app
 
-app.config["SECRET_KEY"] = "sjakjs45454s@#4s8as9s997"
-
 from app.models.User import User
-from app.models.Criptografia import Criptografia
+from app.models.Encrypto import Encrypto
 
-#verify login user
 @app.route("/auth/login/", methods=["POST"])
 def login():
   email = request.form.get("email")
@@ -22,15 +19,9 @@ def login():
       "name": result["name"],
       "email": email,
       "message": "OK",
-      "code": 200,
-      "modules": result["modules"]
+      "code": 200
     }
 
-    token = Criptografia().encode(message)
-
-    session["token"] = token
-
-    return redirect("/abtms/modules/")
   else:
     message = {
       "name": "",
@@ -39,14 +30,9 @@ def login():
       "code": 404
     }
 
-    token = Criptografia().encode(message)
+  token = Encrypto().encode(message)
 
-    return redirect("/abtms/login/")
-
-@app.route("/auth/signup/", methods=["GET"])
-def redirect_signup():
-  return render_template("signup.html")
-
+  return token
 
 @app.route("/auth/signup/", methods=["POST"])
 def signup():
@@ -58,12 +44,7 @@ def signup():
 
   result = user.signup(user=user)
 
-  return render_template("login.html", warning="O usuário foi cadastrado com sucesso!")
-
-
-def check(email="", system=""):
-    user = User()
-
-    result = user.check_permissions(email=email, system=system)
-
-    return result
+  if result:
+    return "OK", 200
+  else:
+    return "Error", 404

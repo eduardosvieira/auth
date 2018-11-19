@@ -1,6 +1,6 @@
 import jwt
 
-class Criptografia():
+class Encrypto():
 
     def encode(self, msg):
         encoded_jwt = jwt.encode(msg, 'secret', algorithm='HS256')
